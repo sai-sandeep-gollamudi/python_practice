@@ -79,4 +79,46 @@ lc-75
                 ans.append(True)
             else:
                 ans.append(False)
-        return ans
+        return and
+
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
+        c=0
+        i=0
+        while(i<len(flowerbed) and c<n):
+            if(flowerbed[i]==0):
+                if(((i==0) or (flowerbed[i-1]==0)) and ((i==len(flowerbed)-1) or (flowerbed[i+1]==0))):
+                    c+=1
+                    flowerbed[i]=1
+            i+=1
+        if(c==n):
+            return True
+        else:
+            return False
+
+    def reverseVowels(self, s: str) -> str:
+        vs = []
+        for i in range(len(s)):
+            if (s[i] in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']):
+                vs.append(s[i])
+
+        j = -1
+        t = ''
+        for i in range(len(s)):
+            if (s[i] in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']):
+                t = t + vs[j]
+                j -= 1
+            else:
+                t = t + s[i]
+        return t
+
+    def increasingTriplet(self, nums: List[int]) -> bool:
+        first_num = float("inf")
+        second_num = float("inf")
+        for i in range(len(nums)):
+            if nums[i]<=first_num:
+                first_num=nums[i]
+            elif nums[i]<=second_num:
+                second_num = nums[i]
+            else:
+                return True
+        return False
