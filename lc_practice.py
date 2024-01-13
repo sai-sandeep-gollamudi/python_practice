@@ -122,3 +122,43 @@ lc-75
             else:
                 return True
         return False
+
+    def reverseWords(self, s: str) -> str:
+        temp=[]
+        temp=s.split()
+        temp.reverse()
+        t=""
+        for i in range(len(temp)):
+            if(i!=0):
+                t=t+" "
+            t=t+temp[i]
+        return t
+
+    def findContentChildren(self, g: List[int], s: List[int]) -> int: #455
+        noc=len(g)
+        c=0
+        temp=sorted(s)
+        g=sorted(g)
+        j=0
+        for i in range(noc):
+            while(j<len(temp) and g[i] > temp[j]):
+                j+=1
+            if(j<len(temp)):
+                temp[j]=0
+                c+=1
+                j+=1
+        return c
+
+    def findMatrix(self, nums: List[int]) -> List[List[int]]: #2610
+        ans=[]
+        while(len(nums)):
+            t=[]
+            s=[]
+            for i in range(len(nums)):
+                if(nums[i] in t):
+                    s.append(nums[i])
+                else:
+                    t.append(nums[i])
+            ans.append(t)
+            nums=s.copy()
+        return ans
