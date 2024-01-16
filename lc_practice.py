@@ -162,3 +162,52 @@ lc-75
             ans.append(t)
             nums=s.copy()
         return ans
+
+    def numberOfBeams(self, bank: List[str]) -> int: #2125
+        c=0
+        ans=0
+        str_len=len(bank[0])
+        for i in range(len(bank)):
+            temp=bank[i]
+            rc=0
+            for j in range(len(temp)):
+                if('1'==temp[j]):
+                    rc+=1
+            if(rc!=0):
+                ans=ans+(c*rc)
+                c=rc
+        return ans
+
+
+    def minSteps(self, s: str, t: str) -> int: #1347
+        c=0
+        for i in range(len(s)):
+            temp=s[i]
+            if(temp not in t):
+                c+=1
+            else:
+                t=t.replace(temp,'',1)
+        return c
+
+    class RandomizedSet:
+
+        def __init__(self):
+            self.li = []
+
+        def insert(self, val: int) -> bool:
+            if val not in self.li:
+                self.li.append(val)
+                return True
+            else:
+                return False
+
+        def remove(self, val: int) -> bool:
+            if val not in self.li:
+                return False
+            else:
+                self.li.remove(val)
+                return True
+
+        def getRandom(self) -> int:
+            import random
+            return choice(self.li)
