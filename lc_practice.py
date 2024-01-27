@@ -211,3 +211,24 @@ lc-75
         def getRandom(self) -> int:
             import random
             return choice(self.li)
+
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        if (0 not in nums):
+            tv = 1
+            ans = []
+            for i in nums:
+                tv = tv * i
+            for i in range(len(nums)):
+                ans.append(tv // nums[i])
+        else:
+            if (nums.count(0) > 1):
+                ans = [0] * len(nums)
+            else:
+                ind = nums.index(0)
+                temp = 1
+                for i in range(len(nums)):
+                    if i != ind:
+                        temp = temp * nums[i]
+                ans = [0] * len(nums)
+                ans[ind] = temp
+        return ans
