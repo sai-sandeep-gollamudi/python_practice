@@ -30,3 +30,25 @@ def maxVowels(self, s: str, k: int) -> int:
             c += 1
         ws += 1
     return max(ans, c)
+
+---
+
+def longestSubarray(self, nums: List[int]) -> int:
+    if 0 not in nums:
+        return len(nums) - 1
+    l = r = c = f = ans = temp = 0
+    while (r < len(nums)):
+        if nums[r] == 1:
+            c += 1
+            r += 1
+        elif (nums[r] == 0 and f == 0):
+            f = 1
+            temp = r + 1
+            r += 1
+        else:
+            ans = max(ans, c)
+            l = temp
+            r = temp
+            f = 0
+            c = 0
+    return max(ans, c)
