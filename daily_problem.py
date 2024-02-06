@@ -23,4 +23,18 @@ def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
         if len(ans)==0:
             return -1
         else:
-           return min(ans)
+           return min(and)
+
+---02/06---
+def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        hm={}
+        for i in strs:
+            t=''.join(sorted(i))
+            if t not in hm:
+                hm[t]=[i]
+            else:
+                hm[t].append(i)
+        ans=[]
+        for k,v in hm.items():
+            ans.append(v)
+        return ans
