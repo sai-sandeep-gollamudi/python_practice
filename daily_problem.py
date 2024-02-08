@@ -37,4 +37,15 @@ def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         ans=[]
         for k,v in hm.items():
             ans.append(v)
-        return ans
+        return and
+
+---02/07---
+def frequencySort(self, s: str) -> str:
+    hm=Counter()
+    for i in s:
+        hm[i]+=1
+    
+    out=[]
+    for k,v in hm.most_common():
+        out.append(k*v)
+    return "".join(out)
