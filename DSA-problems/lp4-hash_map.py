@@ -19,3 +19,12 @@ def uniqueOccurrences(self, arr: List[int]) -> bool:
         else:
             seen.append(v)
     return True
+
+#######
+def closeStrings(self, word1: str, word2: str) -> bool:
+    
+   hm1=Counter(word1)
+   hm2=Counter(word2)
+   if((sorted(hm1.values())==sorted(hm2.values())) and hm1.keys()== hm2.keys()):
+       return True
+   return False
