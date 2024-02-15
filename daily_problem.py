@@ -49,3 +49,45 @@ def frequencySort(self, s: str) -> str:
     for k,v in hm.most_common():
         out.append(k*v)
     return "".join(out)
+
+def sortedArray(a: [int], b: [int]) -> [int]:
+    # Write your code her
+    inp1=list(set(a))
+    inp2=list(set(b))
+    inp1.sort()
+    inp2.sort()
+    #print(inp1,inp2)
+    ans=[]
+    i=0
+    j=0
+    while(i<len(inp1) and j<len(inp2)):
+        if(inp1[i]==inp2[j]):
+            ans.append(inp1[i])
+            i+=1
+            j+=1
+        elif(inp1[i]>inp2[j]):
+            ans.append(inp2[j])
+            j+=1
+        else:
+            ans.append(inp1[i])
+            i+=1
+    if(i==len(inp1)):
+        for k in range(j,len(inp2)):
+            ans.append(inp2[k])
+    else:
+        for k in range(i,len(inp1)):
+            ans.append(inp1[k])
+    return and
+
+
+def rotateArray(arr: [], n: int) -> []:
+    # Write your code from here.
+    temp=arr[0]
+    for i in range(1,len(arr)):
+        arr[i-1]=arr[i]
+    arr[-1]=temp
+    return arr
+    pass
+
+
+
