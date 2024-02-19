@@ -89,5 +89,33 @@ def rotateArray(arr: [], n: int) -> []:
     return arr
     pass
 
+def missingNumber(self, nums: List[int]) -> int:
+nums.sort()
+        for i in range(0,len(nums)):
+            if(i!=nums[i]):
+                return i
+        return len(nums)
 
+def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+    m=0
+    temp=0
+    for i in range(len(nums)):
+        if(nums[i]==1):
+            temp+=1
+        else:
+            m=max(m,temp)
+            temp=0
+    return max(m,temp)
 
+def singleNumber(self, nums: List[int]) -> int:
+    dict={}
+    for i in range(len(nums)):
+        if nums[i] in dict:
+            dict[nums[i]]+=1
+        else:
+            dict[nums[i]]=1
+    
+    for key,value in dict.items():
+        if(value==1):
+            return key
+            
