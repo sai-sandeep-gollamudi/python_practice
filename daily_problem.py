@@ -119,3 +119,17 @@ def singleNumber(self, nums: List[int]) -> int:
         if(value==1):
             return key
             
+def check(self, nums: List[int]) -> bool:
+        t=0
+        for i in range(len(nums)-1):
+            if(nums[i]>nums[i+1]):
+                t=i+1
+                break
+        
+        temp = []
+        temp = nums[t:] + nums[:t]
+        for i in range(len(temp)-1):
+            if(temp[i]>temp[i+1]):
+                return False
+        return True
+    
